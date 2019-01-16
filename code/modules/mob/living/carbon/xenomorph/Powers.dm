@@ -52,7 +52,8 @@
 
 
 /mob/living/carbon/Xenomorph/Hunter/Pounce(atom/T)
-
+	set name = "Pounce"
+	set desc = "Pounce at a tile."
 	if(!T || !check_state() || !check_plasma(20) || T.layer >= FLY_LAYER) //anything above that shouldn't be pounceable (hud stuff)
 		return
 
@@ -109,6 +110,8 @@
 
 // Praetorian acid spray
 /mob/living/carbon/Xenomorph/proc/acid_spray_cone(atom/A)
+	set name = "Acid Spray"
+	set desc = "Sprays acid in a cone."
 
 	if (!A || !check_state())
 		return
@@ -367,6 +370,8 @@
 
 // Warrior Fling
 /mob/living/carbon/Xenomorph/proc/fling(atom/A)
+	set name = "Fling"
+	set desc = "Fling a mob."
 
 	if (!A || !istype(A, /mob/living/carbon/human) || !check_state() || agility || !check_plasma(10) || !Adjacent(A))
 		return
@@ -411,6 +416,8 @@
 		update_action_button_icons()
 
 /mob/living/carbon/Xenomorph/proc/punch(var/mob/living/M)
+	set name = "Punch"
+	set desc = "Punch someone very hard."
 
 	if (!M)
 		return
@@ -493,6 +500,8 @@
 		update_action_button_icons()
 
 /mob/living/carbon/Xenomorph/proc/lunge(atom/A)
+	set name = "Lunge"
+	set desc = "Lunge at someone."
 
 	if (!A || !istype(A, /mob/living/carbon/human) || !check_state() || agility || !check_plasma(10))
 		return
@@ -599,6 +608,8 @@
 
 // Warrior Agility
 /mob/living/carbon/Xenomorph/proc/toggle_agility()
+	set name = "Toggle Agility"
+	set desc = "Loosen your armored scales to run faster."
 	if (!check_state())
 		return
 
@@ -632,6 +643,8 @@
 
 // Defender Headbutt
 /mob/living/carbon/Xenomorph/proc/headbutt(var/mob/M)
+	set name = "Headbutt"
+	set desc = "Headbutt someone."
 	if (!M || !istype(M, /mob/living/carbon/human))
 		return
 
@@ -724,6 +737,8 @@
 
 // Defender Tail Sweep
 /mob/living/carbon/Xenomorph/proc/tail_sweep()
+	set name = "Tail Sweep"
+	set desc = "Sweep your tail in a wide arc."
 	if (fortify)
 		to_chat(src, "<span class='xenowarning'>You cannot use abilities while fortified.</span>")
 		return
@@ -788,6 +803,8 @@
 
 // Defender Crest Defense
 /mob/living/carbon/Xenomorph/proc/toggle_crest_defense()
+	set name = "Toggle Crest Defense"
+	set desc = "Lower your armored crest."
 
 	if (!check_state())
 		return
@@ -837,6 +854,8 @@
 
 // Defender Fortify
 /mob/living/carbon/Xenomorph/proc/fortify()
+	set name = "Fortify"
+	set desc = "Tuck yourself into a defensive stance."
 	if (!check_state())
 		return
 
@@ -1108,6 +1127,8 @@
 
 //Note: All the neurotoxin projectile items are stored in XenoProcs.dm
 /mob/living/carbon/Xenomorph/proc/xeno_spit(atom/T)
+	set name = "Spit"
+	set desc = "Spit at something."
 
 	if(!check_state())
 		return
@@ -1160,6 +1181,8 @@
 
 
 /mob/living/carbon/Xenomorph/proc/build_resin(atom/A, resin_plasma_cost)
+	set name = "Build Resin"
+	set desc = "Build using some resin."
 	if(action_busy)
 		return
 	if(!check_state())
@@ -1322,6 +1345,8 @@
 //Corrosive acid is consolidated -- it checks for specific castes for strength now, but works identically to each other.
 //The acid items are stored in XenoProcs.
 /mob/living/carbon/Xenomorph/proc/corrosive_acid(atom/O, acid_type, plasma_cost)
+	set name = "Acid"
+	set desc = "Regurgitate some acid on something."
 
 	if(!O.Adjacent(src))
 		to_chat(src, "<span class='warning'>\The [O] is too far away.</span>")
@@ -1654,6 +1679,8 @@
 
 // Crusher Horn Toss
 /mob/living/carbon/Xenomorph/proc/cresttoss(var/mob/living/carbon/M)
+	set name = "Crest Toss"
+	set desc = "Toss something away using your crest."
 	if(cresttoss_used)
 		return
 
@@ -1758,6 +1785,8 @@
 
 // Carrier Spawn Hugger
 /mob/living/carbon/Xenomorph/Carrier/proc/Spawn_Hugger(var/mob/living/carbon/M)
+	set name = "Spawn Hugger"
+	set desc = "Spawns a hugger."
 	if(stagger)
 		to_chat(src, "<span class='xenowarning'>You try to spawn a young one but are unable to shake off the shock!</span>")
 		return
@@ -1796,6 +1825,8 @@
 
 // Hunter Stealth
 /mob/living/carbon/Xenomorph/Hunter/proc/Stealth()
+	set name = "Stealth"
+	set desc = "Enter Stealth."
 
 	if(!check_state())
 		return
@@ -1855,6 +1886,8 @@
 
 
 /mob/living/carbon/Xenomorph/Ravager/proc/Ravage(atom/A)
+	set name = "Ravage"
+	set desc = "Thrash someone."
 	if (!check_state())
 		return
 
@@ -1920,6 +1953,8 @@
 		update_action_button_icons()
 
 /mob/living/carbon/Xenomorph/Ravager/proc/Second_Wind()
+	set name = "Second Wind"
+	set desc = "Use your adrenaline to regenerate."
 	if (!check_state())
 		return
 
@@ -2022,6 +2057,8 @@
 			M.KnockDown(1)
 
 /mob/living/carbon/Xenomorph/proc/acid_spray(atom/T, plasmacost = 250, acid_d = xeno_caste.acid_delay)
+	set name = "Acid Spray"
+	set desc = "Spray some acid."
 	if(!T)
 		to_chat(src, "<span class='warning'>You see nothing to spit at!</span>")
 		return
